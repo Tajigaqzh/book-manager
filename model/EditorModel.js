@@ -17,6 +17,7 @@ Editor.init({
         allowNull: false,
         primaryKey: true,
         length: 10,
+        autoIncrement: true,
     },
     /**
      * 姓名
@@ -140,7 +141,7 @@ Editor.init({
     createTime: {
         type: DataTypes.DATE,
         allowNull: false,
-        defaultValue: DataTypes.NOW,
+        defaultValue: DataTypes.NOW
     },
     /**
      * 更新时间
@@ -148,6 +149,14 @@ Editor.init({
     updateTime: {
         type: DataTypes.DATE,
         allowNull: true
+    },
+    /**
+     * 部门id
+     */
+    departmentId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        length: 10
     }
 
 }, {
@@ -155,6 +164,8 @@ Editor.init({
     modelName: 'editor',
     timestamps: false,
     tableName: 'editor',
+
+
 });
 
 /**test*/
@@ -177,7 +188,8 @@ const ed = Editor.build(
         leaveDate: null,
         groupId: 1,
         createTime: '2020-01-01',
-        updateTime: null
+        updateTime: null,
+        departmentId: 1
     });
 module.exports = Editor;
 
